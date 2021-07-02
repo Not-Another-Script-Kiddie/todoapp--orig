@@ -1,0 +1,15 @@
+runtime: ruby
+env: flex
+entrypoint: bundle exec rails server -p $PORT
+manual_scaling:
+  instances: 1
+resources:
+  cpu: 1
+  memory_gb: 0.5
+  disk_size_gb: 10
+env_variables:
+  RAILS_ENV: production
+  DATABASE_NAME: todoapp-prod
+  DATABASE_HOST: /cloudsql/nask-blog-guide-test:europe-west2:todoapp-postgres
+beta_settings:
+  cloud_sql_instances: nask-blog-guide-test:europe-west2:todoapp-postgres
